@@ -1,0 +1,9 @@
+{
+"key.mybrightness.category": "My Brightness",
+"key.mybrightness.toggle" : "An/Aus My Brightness",
+"key.mybrightness.increase" : "Helligkeit erhöhen",
+"key.mybrightness.decrease" : "Helligkeit verringern",
+"message.mybrightness.full": "Volle Helligikeit",
+"message.mybrightness.normal": "Normale Helligkeit",
+"message.mybrightness.percent": "Helligkeit %s %s"
+}

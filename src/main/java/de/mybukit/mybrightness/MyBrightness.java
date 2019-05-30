@@ -14,6 +14,7 @@ public class MyBrightness implements ClientModInitializer {
 	public static  MinecraftClient client;
 	public static TextRenderer fontRenderer;
 	public static FabricKeyBinding toggle;
+	public static FabricKeyBinding full;
 	public static FabricKeyBinding increase;
 	public static FabricKeyBinding decrease;
 	public static boolean enabled=false;
@@ -24,8 +25,8 @@ public class MyBrightness implements ClientModInitializer {
 		fontRenderer = client.textRenderer;
 
 		KeyBindingRegistry.INSTANCE.addCategory("key.mybrightness.category");
-		toggle = FabricKeyBinding.Builder.create(new Identifier("mybrightness", "toggle"), InputUtil.Type.KEYSYM, 324, "MyBrightness").build(); // Num 4
-		increase = FabricKeyBinding.Builder.create(new Identifier("mybrightness", "increase"), InputUtil.Type.KEYSYM, 325, "MyBrightness").build(); // Num 5
+		toggle = FabricKeyBinding.Builder.create(new Identifier("mybrightness", "toggle"), InputUtil.Type.KEYSYM, 325, "MyBrightness").build(); // Num 5
+		increase = FabricKeyBinding.Builder.create(new Identifier("mybrightness", "increase"), InputUtil.Type.KEYSYM, 324, "MyBrightness").build(); // Num 4
 		decrease = FabricKeyBinding.Builder.create(new Identifier("mybrightness", "decrease"), InputUtil.Type.KEYSYM, 326, "MyBrightness").build(); // Num 6
 
 		KeyBindingRegistry.INSTANCE.register(toggle);
@@ -49,6 +50,7 @@ public class MyBrightness implements ClientModInitializer {
 				client.inGameHud.setOverlayMessage(McColor.gold+(new TranslatableComponent("message.mybrightness.normal").getFormattedText()), false);
 			}
 		}
+
 		if (enabled&&increase.wasPressed()) {
 			if(gamma < 15.0D) {
 				gamma = client.options.gamma = gamma +1.0D;
@@ -60,9 +62,6 @@ public class MyBrightness implements ClientModInitializer {
 				gamma = client.options.gamma = gamma -1.0D;
 				client.inGameHud.setOverlayMessage(McColor.gold+(new TranslatableComponent("message.mybrightness.percent",(int)gamma*100,"%").getFormattedText()), false);
 			}
-			//double gamma = MinecraftClient.getInstance().options.gamma = 15.0;
-
-
 		}
 	}
 }

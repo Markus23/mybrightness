@@ -5,6 +5,7 @@
   "name": "MyBrightness Fabric",
   "description": "This is MyBrightness for Fabric",
   "license": "MIT",
+  "icon": "assets/mybrightness/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [

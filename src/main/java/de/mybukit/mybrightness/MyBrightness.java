@@ -26,8 +26,8 @@ public class MyBrightness implements ClientModInitializer {
 
 		KeyBindingRegistry.INSTANCE.addCategory("key.mybrightness.category");
 		toggle = FabricKeyBinding.Builder.create(new Identifier("mybrightness", "toggle"), InputUtil.Type.KEYSYM, 325, "MyBrightness").build(); // Num 5
-		increase = FabricKeyBinding.Builder.create(new Identifier("mybrightness", "increase"), InputUtil.Type.KEYSYM, 324, "MyBrightness").build(); // Num 4
-		decrease = FabricKeyBinding.Builder.create(new Identifier("mybrightness", "decrease"), InputUtil.Type.KEYSYM, 326, "MyBrightness").build(); // Num 6
+		increase = FabricKeyBinding.Builder.create(new Identifier("mybrightness", "increase"), InputUtil.Type.KEYSYM, 326, "MyBrightness").build(); // Num 4
+		decrease = FabricKeyBinding.Builder.create(new Identifier("mybrightness", "decrease"), InputUtil.Type.KEYSYM, 324, "MyBrightness").build(); // Num 6
 
 		KeyBindingRegistry.INSTANCE.register(toggle);
 		KeyBindingRegistry.INSTANCE.register(increase);

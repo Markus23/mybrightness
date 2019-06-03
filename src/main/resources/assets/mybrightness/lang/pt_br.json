@@ -1,0 +1,9 @@
+{
+"key.mybrightness.category": "Meu Brilho",
+"key.mybrightness.toggle" : "Alternar Brilho",
+"key.mybrightness.increase" : "Aumentar Brilho",
+"key.mybrightness.decrease" : "Diminuir Brilho",
+"message.mybrightness.full": "Brilho máximo",
+"message.mybrightness.normal": "Brilho Padrão",
+"message.mybrightness.percent": "Brilho %s %s"
+}

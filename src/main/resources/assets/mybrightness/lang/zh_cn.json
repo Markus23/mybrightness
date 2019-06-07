@@ -1,9 +1,9 @@
 {
-"key.mybrightness.category": "我的亮度",
-"key.mybrightness.toggle" : "切换亮度",
-"key.mybrightness.increase" : "提升亮度",
-"key.mybrightness.decrease" : "降低亮度",
-"message.mybrightness.full": "最高亮度",
-"message.mybrightness.normal": "默认亮度",
-"message.mybrightness.percent": "亮度 %s %s"
+"key.mybrightness.category": "æˆ‘çš„äº®åº¦",
+"key.mybrightness.toggle" : "åˆ‡æ�¢äº®åº¦",
+"key.mybrightness.increase" : "æ��å�‡äº®åº¦",
+"key.mybrightness.decrease" : "é™�ä½Žäº®åº¦",
+"message.mybrightness.full": "æœ€é«˜äº®åº¦ %s %s",
+"message.mybrightness.normal": "é»˜è®¤äº®åº¦",
+"message.mybrightness.percent": "äº®åº¦ %s %s"
 }

@@ -6,11 +6,8 @@
   "description": "This is MyBrightness for Fabric",
   "license": "MIT",
   "icon": "assets/mybrightness/icon.png",
-  "environment": "*",
+  "environment": "client",
   "entrypoints": {
-    "main": [
-	  
-    ],
     "client": [
 	 "de.mybukit.mybrightness.MyBrightness"
     ]

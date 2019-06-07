@@ -1,9 +1,14 @@
 package de.mybukit.mybrightness;
 
+import java.io.File;
+import java.io.IOException;
+
 import de.mybukit.mybrightness.helper.McColor;
+import de.mybukit.mybrightness.helper.MyConfig;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.keybinding.FabricKeyBinding;
 import net.fabricmc.fabric.api.client.keybinding.KeyBindingRegistry;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.util.InputUtil;
@@ -18,10 +23,19 @@ public class MyBrightness implements ClientModInitializer {
 	public static FabricKeyBinding increase;
 	public static FabricKeyBinding decrease;
 	public static boolean enabled=false;
-	public static double gamma;
+	public static int gamma;
+	public static int gammaprob;
+	public static File configdir = FabricLoader.getInstance().getConfigDirectory();
+	public static File configfile = new File(configdir,"mybrightness.cfg");
+
+	public static MyConfig config =new MyConfig(configfile.toString());
 	@Override
 	public void onInitializeClient() {
 		client = MinecraftClient.getInstance();
+		
+		if(!configfile.exists()) makeFile(configfile);
+		config = MyConfig.getInstance();
+		
 		fontRenderer = client.textRenderer;
 
 		KeyBindingRegistry.INSTANCE.addCategory("key.mybrightness.category");
@@ -40,28 +54,50 @@ public class MyBrightness implements ClientModInitializer {
 		if (toggle.wasPressed()) {
 			enabled = !enabled;
 			if(enabled) {
-				gamma = client.options.gamma = 15.0;
-
-				client.inGameHud.setOverlayMessage(McColor.aqua+(new TranslatableComponent("message.mybrightness.full",(int)gamma).getFormattedText()), false);
+				gammaprob = config.getInt("gamma", 1500);
+				if(gammaprob >1500)gammaprob=1500;
+			
+				setBrightness(gammaprob);
+				client.inGameHud.setOverlayMessage(McColor.aqua+(new TranslatableComponent("message.mybrightness.full",getBrightness(),"%").getFormattedText()), false);
 
 			}else {
-				gamma = client.options.gamma = 0.0;
+				if(config.getInt("gamma") != getBrightness())config.saveParamChanges("gamma", Integer.toString(getBrightness()));
+				setBrightness(0);
 
 				client.inGameHud.setOverlayMessage(McColor.gold+(new TranslatableComponent("message.mybrightness.normal").getFormattedText()), false);
 			}
 		}
 
 		if (enabled&&increase.wasPressed()) {
-			if(gamma < 15.0D) {
-				gamma = client.options.gamma = gamma +1.0D;
-				client.inGameHud.setOverlayMessage(McColor.gold+(new TranslatableComponent("message.mybrightness.percent",(int)gamma*100,"%").getFormattedText()), false);
+			if(getBrightness() < 1500) {
+				gamma = getBrightness()+100;
+				setBrightness(gamma);
+				client.inGameHud.setOverlayMessage(McColor.gold+(new TranslatableComponent("message.mybrightness.percent",getBrightness(),"%").getFormattedText()), false);
 			}
 		}
 		if (enabled&&decrease.wasPressed()) {
-			if(gamma > 0.0D) {
-				gamma = client.options.gamma = gamma -1.0D;
-				client.inGameHud.setOverlayMessage(McColor.gold+(new TranslatableComponent("message.mybrightness.percent",(int)gamma*100,"%").getFormattedText()), false);
+			if(getBrightness() > 0) {
+				gamma = getBrightness()-100;
+				setBrightness(gamma);
+				client.inGameHud.setOverlayMessage(McColor.gold+(new TranslatableComponent("message.mybrightness.percent",getBrightness(),"%").getFormattedText()), false);
 			}
 		}
+	}
+	public void makeFile(File file) {
+		if (!file.exists()) {
+			try {
+				file.createNewFile();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	public static void setBrightness(int brightness) {
+		client.options.gamma = brightness/100;
+	}
+	public static int getBrightness() {
+		int brightness = (int) (client.options.gamma * 100);
+		return brightness;
 	}
 }

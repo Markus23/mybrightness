@@ -3,7 +3,7 @@
 "key.mybrightness.toggle" : "Toggle Brightness",
 "key.mybrightness.increase" : "Increase Brightness",
 "key.mybrightness.decrease" : "Decrease Brightness",
-"message.mybrightness.full": "Full Brightness",
+"message.mybrightness.full": "Full Brightness %s %s",
 "message.mybrightness.normal": "Default Brightness",
 "message.mybrightness.percent": "Brightness %s %s"
 }

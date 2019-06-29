@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "mybrightness",
+  "version": "${version}",
+  "name": "MyBrightness Fabric",
+  "description": "This is MyBrightness for Fabric",
+  "license": "MIT",
+  "icon": "assets/mybrightness/icon.png",
+
+  "entrypoints": {
+    "client": [
+	 "de.mybukit.mybrightness.MyBrightness"
+    ]
+  },
+  "requires": {
+    "fabricloader": ">=0.4.0",
+    "fabric": "*"
+  },
+  "mixins": [
+    "mybrightnesclientmixin.json"
+  ],
+  "authors": [
+    "Marexius"
+  ]
+}

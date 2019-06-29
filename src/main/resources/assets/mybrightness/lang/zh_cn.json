@@ -1,0 +1,9 @@
+{
+"key.mybrightness.category": "æˆ‘çš„äº®åº¦",
+"key.mybrightness.toggle" : "åˆ‡æ�¢äº®åº¦",
+"key.mybrightness.increase" : "æ��å�‡äº®åº¦",
+"key.mybrightness.decrease" : "é™�ä½Žäº®åº¦",
+"message.mybrightness.full": "æœ€é«˜äº®åº¦ %s %s",
+"message.mybrightness.normal": "é»˜è®¤äº®åº¦",
+"message.mybrightness.percent": "äº®åº¦ %s %s"
+}

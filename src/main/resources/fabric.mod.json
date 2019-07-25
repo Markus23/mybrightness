@@ -9,7 +9,7 @@
 
   "entrypoints": {
     "client": [
-	 "de.mybukit.mybrightness.MyBrightness"
+	 "de.mybukkit.mybrightness.MyBrightness"
     ]
   },
   "requires": {

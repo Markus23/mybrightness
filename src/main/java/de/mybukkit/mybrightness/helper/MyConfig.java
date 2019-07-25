@@ -1,4 +1,4 @@
-package de.mybukit.mybrightness.helper;
+package de.mybukkit.mybrightness.helper;
 
 
 import java.io.FileInputStream;

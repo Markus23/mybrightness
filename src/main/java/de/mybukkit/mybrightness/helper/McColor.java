@@ -1,4 +1,4 @@
-package de.mybukit.mybrightness.helper;
+package de.mybukkit.mybrightness.helper;
 
 public class McColor
 {

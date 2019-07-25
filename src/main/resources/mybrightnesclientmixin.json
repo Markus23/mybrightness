@@ -1,6 +1,6 @@
 {
   "required": true,
-  "package": "de.mybukit.mybrightness.mixin",
+  "package": "de.mybukkit.mybrightness.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "MixinClient"

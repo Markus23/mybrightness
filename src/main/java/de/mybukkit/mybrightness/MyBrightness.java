@@ -1,10 +1,10 @@
-package de.mybukit.mybrightness;
+package de.mybukkit.mybrightness;
 
 import java.io.File;
 import java.io.IOException;
 
-import de.mybukit.mybrightness.helper.McColor;
-import de.mybukit.mybrightness.helper.MyConfig;
+import de.mybukkit.mybrightness.helper.McColor;
+import de.mybukkit.mybrightness.helper.MyConfig;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.keybinding.FabricKeyBinding;
 import net.fabricmc.fabric.api.client.keybinding.KeyBindingRegistry;
@@ -24,6 +24,7 @@ public class MyBrightness implements ClientModInitializer {
 	public static FabricKeyBinding decrease;
 	public static boolean enabled=false;
 	public static int gamma;
+	public static int gammadefault;
 	public static int gammaprob;
 	public static File configdir = FabricLoader.getInstance().getConfigDirectory();
 	public static File configfile = new File(configdir,"mybrightness.cfg");
@@ -35,7 +36,7 @@ public class MyBrightness implements ClientModInitializer {
 		
 		if(!configfile.exists()) makeFile(configfile);
 		config = MyConfig.getInstance();
-		
+		gammadefault = config.getInt("default", (int)client.options.gamma);
 		fontRenderer = client.textRenderer;
 
 		KeyBindingRegistry.INSTANCE.addCategory("key.mybrightness.category");
@@ -62,7 +63,7 @@ public class MyBrightness implements ClientModInitializer {
 
 			}else {
 				if(config.getInt("gamma") != getBrightness())config.saveParamChanges("gamma", Integer.toString(getBrightness()));
-				setBrightness(0);
+				setBrightness(gammadefault);
 
 				client.inGameHud.setOverlayMessage(McColor.gold+(new TranslatableText("message.mybrightness.normal").asFormattedString()), false);
 			}

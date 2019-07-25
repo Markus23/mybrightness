@@ -21,5 +21,13 @@
   ],
   "authors": [
     "Marexius"
-  ]
+  ],
+  "contact": {
+    "homepage": "https://curseforge.com/minecraft/mc-mods/mybrightness",
+    "issues": "https://github.com/Markus23/mybrightness/issues",
+    "sources": "https://github.com/Markus23/mybrightness"
+  },
+  "custom": {
+    "modmenu:clientsideOnly": true
+  }
 }

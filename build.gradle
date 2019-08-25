@@ -47,28 +47,6 @@ dependencies {
 }
 
 
-curseforge {
-  apiKey = '202a709a-88ab-4be4-87f0-e1e3698d1fa8'
-  project {
-    id = '76460'
-    changelog = '[19w11b] release for Fabric '
-    releaseType = 'beta'
-    addGameVersion '1.14-Snapshot'
-
-    mainArtifact(jar) {
-            displayName = "[Fabric " + minecraft_version + "] " +archivesBaseName+"-"+version
-			relations {
-				requiredDependency "fabric"
-			}
-        }
-  }
-    options {
-    debug = false // defaults to false
-    javaVersionAutoDetect = true // defaults to true
-    javaIntegration = false // defaults to true
-    forgeGradleIntegration = false // defaults to true
-  }
-}
 
 // Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
 // if it is present.
